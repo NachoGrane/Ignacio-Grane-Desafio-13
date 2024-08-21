@@ -1,0 +1,13 @@
+// este tipo de export sirve por si tengo mas de una funcion dentro de este archivo
+export const peticionesHttp = async (url, options) => {
+  try {
+    const res = await fetch(url, options);
+    if (!res.ok) throw new Error("No se pudo realizar", res.status);
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("[peticionesHttp]", error);
+  }
+};
+
+//export default peticionesHttp;
